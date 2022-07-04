@@ -14,5 +14,6 @@ Rules
 Contributors:
 
 Joseph Perez:
-- Readme File
-- Game mockups
+- Readme File [ ]
+- Game mockups [X]
+- Removed bricks from the code [X]
