@@ -22,14 +22,14 @@ FIELD_LEFT = 0
 FIELD_RIGHT = SCREEN_WIDTH
 
 # FONT
-FONT_FILE = "assets/fonts/zorque.otf"
+FONT_FILE = "pong/assets/fonts/zorque.otf"
 FONT_SMALL = 32
 FONT_LARGE = 48
 
 # SOUND
-BOUNCE_SOUND = "assets/sounds/boing.wav"
-WELCOME_SOUND = "assets/sounds/start.wav"
-OVER_SOUND = "assets/sounds/over.wav"
+BOUNCE_SOUND = "pong/assets/sounds/boing.wav"
+WELCOME_SOUND = "pong/assets/sounds/start.wav"
+OVER_SOUND = "pong/assets/sounds/over.wav"
 
 # TEXT
 ALIGN_CENTER = 0
@@ -88,14 +88,14 @@ SCORE_FORMAT = "SCORE: {}"
 
 # BALL
 BALL_GROUP = "balls"
-BALL_IMAGE = "assets/images/000.png"
+BALL_IMAGE = "pong/assets/images/000.png"
 BALL_WIDTH = 28
 BALL_HEIGHT = 28
 BALL_VELOCITY = 6
 
 # RACKET
 RACKET_GROUP = "rackets"
-RACKET_IMAGES = [f"assets/images/{n:03}.png" for n in range(100, 103)]
+RACKET_IMAGES = [f"pong/assets/images/{n:03}.png" for n in range(100, 103)]
 RACKET_WIDTH = 106
 RACKET_HEIGHT = 28
 RACKET_RATE = 6
