@@ -43,18 +43,21 @@ class SceneManager:
     VIDEO_SERVICE = RaylibVideoService(GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT)
 
     COLLIDE_BORDERS_ACTION = CollideBordersAction(PHYSICS_SERVICE, AUDIO_SERVICE)
-    COLLIDE_RACKET_ACTION = CollideRacketAction(PHYSICS_SERVICE, AUDIO_SERVICE)
-    P1_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,P1_UP,P1_DOWN)
-    P2_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,P2_UP,P2_DOWN)
+    P1_COLLIDE_RACKET_ACTION = CollideRacketAction(PHYSICS_SERVICE, AUDIO_SERVICE,RACKET_GROUP_P1)
+    #P2_COLLIDE_RACKET_ACTION = CollideRacketAction(PHYSICS_SERVICE, AUDIO_SERVICE,RACKET_GROUP_P2)
+    P1_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,RACKET_GROUP_P1,P1_UP,P1_DOWN)
+    P2_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,RACKET_GROUP_P2,P2_UP,P2_DOWN)
     DRAW_BALL_ACTION = DrawBallAction(VIDEO_SERVICE)
     DRAW_DIALOG_ACTION = DrawDialogAction(VIDEO_SERVICE)
     DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE)
-    DRAW_RACKET_ACTION= DrawRacketAction(VIDEO_SERVICE)
+    P1_DRAW_RACKET_ACTION= DrawRacketAction(VIDEO_SERVICE,RACKET_GROUP_P1)
+    # P2_DRAW_RACKET_ACTION= DrawRacketAction(VIDEO_SERVICE,RACKET_GROUP_P1)
     END_DRAWING_ACTION = EndDrawingAction(VIDEO_SERVICE)
     INITIALIZE_DEVICES_ACTION = InitializeDevicesAction(AUDIO_SERVICE, VIDEO_SERVICE)
     LOAD_ASSETS_ACTION = LoadAssetsAction(AUDIO_SERVICE, VIDEO_SERVICE)
     MOVE_BALL_ACTION = MoveBallAction()
-    MOVE_RACKET_ACTION = MoveRacketAction()
+    P1_MOVE_RACKET_ACTION = MoveRacketAction(RACKET_GROUP_P1)
+    # P2_MOVE_RACKET_ACTION = MoveRacketAction(RACKET_GROUP_P2)
     RELEASE_DEVICES_ACTION = ReleaseDevicesAction(AUDIO_SERVICE, VIDEO_SERVICE)
     START_DRAWING_ACTION = StartDrawingAction(VIDEO_SERVICE)
     UNLOAD_ASSETS_ACTION = UnloadAssetsAction(AUDIO_SERVICE, VIDEO_SERVICE)
@@ -189,7 +192,7 @@ class SceneManager:
         cast.add_actor(STATS_GROUP, stats)
 
     def _add_racket(self, cast):
-        cast.clear_actors(RACKET_GROUP)
+        cast.clear_actors(RACKET_GROUP_P1)
         x = CENTER_X - RACKET_WIDTH / 2
         y = SCREEN_HEIGHT - RACKET_HEIGHT
         position = Point(x, y)
@@ -198,7 +201,7 @@ class SceneManager:
         body = Body(position, size, velocity)
         animation = Animation(RACKET_IMAGES, RACKET_RATE)
         racket = Racket(body, animation)
-        cast.add_actor(RACKET_GROUP, racket)
+        cast.add_actor(RACKET_GROUP_P1, racket)
 
     # ----------------------------------------------------------------------------------------------
     # scripting methods
@@ -216,7 +219,8 @@ class SceneManager:
         script.add_action(OUTPUT, self.START_DRAWING_ACTION)
         script.add_action(OUTPUT, self.DRAW_HUD_ACTION)
         script.add_action(OUTPUT, self.DRAW_BALL_ACTION)
-        script.add_action(OUTPUT, self.DRAW_RACKET_ACTION)
+        script.add_action(OUTPUT, self.P1_DRAW_RACKET_ACTION)
+        # script.add_action(OUTPUT, self.P2_DRAW_RACKET_ACTION)
         script.add_action(OUTPUT, self.DRAW_DIALOG_ACTION)
         script.add_action(OUTPUT, self.END_DRAWING_ACTION)
 
@@ -231,7 +235,10 @@ class SceneManager:
     def _add_update_script(self, script):
         script.clear_actions(UPDATE)
         script.add_action(UPDATE, self.MOVE_BALL_ACTION)
-        script.add_action(UPDATE, self.MOVE_RACKET_ACTION)
+        script.add_action(UPDATE, self.P1_MOVE_RACKET_ACTION)
+        # script.add_action(UPDATE, self.P2_MOVE_RACKET_ACTION)
         script.add_action(UPDATE, self.COLLIDE_BORDERS_ACTION)
-        script.add_action(UPDATE, self.COLLIDE_RACKET_ACTION)
-        script.add_action(UPDATE, self.MOVE_RACKET_ACTION)
+        script.add_action(UPDATE, self.P1_COLLIDE_RACKET_ACTION)
+        #script.add_action(UPDATE, self.P2_COLLIDE_RACKET_ACTION)
+        script.add_action(UPDATE, self.P1_MOVE_RACKET_ACTION)
+        # script.add_action(UPDATE, self.P1_MOVE_RACKET_ACTION)

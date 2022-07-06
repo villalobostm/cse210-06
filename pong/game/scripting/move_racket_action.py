@@ -5,11 +5,11 @@ from game.scripting.action import Action
 
 class MoveRacketAction(Action):
 
-    def __init__(self):
-        pass
+    def __init__(self,player):
+        self._player = player
 
     def execute(self, cast, script, callback):
-        racket = cast.get_first_actor(RACKET_GROUP)
+        racket = cast.get_first_actor(self._player)
         body = racket.get_body()
         velocity = body.get_velocity()
         position = body.get_position()
