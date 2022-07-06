@@ -4,7 +4,7 @@ from game.scripting.action import Action
 
 class ControlRacketAction(Action):
 
-    def __init__(self, keyboard_service,player,up,down):
+    def __init__(self, keyboard_service, player, up, down):
         self._keyboard_service = keyboard_service
         self._player = player
         self._up = up

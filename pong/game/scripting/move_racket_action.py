@@ -5,7 +5,7 @@ from game.scripting.action import Action
 
 class MoveRacketAction(Action):
 
-    def __init__(self,player):
+    def __init__(self, player):
         self._player = player
 
     def execute(self, cast, script, callback):

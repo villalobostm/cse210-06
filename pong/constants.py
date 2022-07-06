@@ -6,7 +6,7 @@ from game.casting.color import Color
 # -------------------------------------------------------------------------------------------------- 
 
 # GAME
-GAME_NAME = "Batter"
+GAME_NAME = "El PONG"
 FRAME_RATE = 60
 
 # SCREEN
@@ -42,10 +42,10 @@ WHITE = Color(255, 255, 255)
 PURPLE = Color(255, 0, 255)
 
 # KEYS
-P1_UP = "w"
-P1_DOWN = "s"
-P2_UP = "up"
-P2_DOWN = "down"
+P1_UP = "up"
+P1_DOWN = "down"
+P2_UP = "w"
+P2_DOWN = "s"
 SPACE = "space"
 ENTER = "enter"
 PAUSE = "p"
@@ -99,11 +99,12 @@ BALL_VELOCITY = 6
 RACKET_GROUP_P1 = "p1_paddle"
 RACKET_GROUP_P2 = "p2_paddle"
 RACKET_IMAGES = [f"pong/assets/images/{n:03}.png" for n in range(100, 103)]
-RACKET_WIDTH = 28 # 106
-RACKET_HEIGHT = 106 # 28
+RACKET_WIDTH = 14 # 106
+RACKET_HEIGHT = 100 # 28
 RACKET_RATE = 6
 RACKET_VELOCITY = 7
-
+RACKET_POSITION_P1 = RACKET_WIDTH
+RACKET_POSITION_P2 = SCREEN_WIDTH - RACKET_WIDTH * 2
 
 BRICK_WIDTH = 80
 BRICK_HEIGHT = 28
