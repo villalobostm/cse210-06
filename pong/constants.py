@@ -42,8 +42,10 @@ WHITE = Color(255, 255, 255)
 PURPLE = Color(255, 0, 255)
 
 # KEYS
-LEFT = "left"
-RIGHT = "right"
+P1_UP = "w"
+P1_DOWN = "s"
+P2_UP = "up"
+P2_DOWN = "down"
 SPACE = "space"
 ENTER = "enter"
 PAUSE = "p"
@@ -96,8 +98,8 @@ BALL_VELOCITY = 6
 # RACKET
 RACKET_GROUP = "rackets"
 RACKET_IMAGES = [f"pong/assets/images/{n:03}.png" for n in range(100, 103)]
-RACKET_WIDTH = 106
-RACKET_HEIGHT = 28
+RACKET_WIDTH = 28 # 106
+RACKET_HEIGHT = 106 # 28
 RACKET_RATE = 6
 RACKET_VELOCITY = 7
 

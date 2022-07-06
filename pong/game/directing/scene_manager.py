@@ -1,4 +1,5 @@
 import csv
+from tkinter import RIGHT
 from constants import *
 from game.casting.animation import Animation
 from game.casting.ball import Ball
@@ -43,7 +44,8 @@ class SceneManager:
 
     COLLIDE_BORDERS_ACTION = CollideBordersAction(PHYSICS_SERVICE, AUDIO_SERVICE)
     COLLIDE_RACKET_ACTION = CollideRacketAction(PHYSICS_SERVICE, AUDIO_SERVICE)
-    CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE)
+    P1_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,P1_UP,P1_DOWN)
+    P2_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,P2_UP,P2_DOWN)
     DRAW_BALL_ACTION = DrawBallAction(VIDEO_SERVICE)
     DRAW_DIALOG_ACTION = DrawDialogAction(VIDEO_SERVICE)
     DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE)
@@ -119,7 +121,7 @@ class SceneManager:
         cast.clear_actors(DIALOG_GROUP)
 
         script.clear_actions(INPUT)
-        script.add_action(INPUT, self.CONTROL_RACKET_ACTION)
+        script.add_action(INPUT, self.P1_CONTROL_RACKET_ACTION)
         self._add_update_script(script)
         self._add_output_script(script)
 
