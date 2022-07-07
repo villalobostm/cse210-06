@@ -17,8 +17,8 @@ class MoveRacketAction(Action):
         
         position = position.add(velocity)
 
-        if y < 0:
-            position = Point(position.get_x(), 0 )
+        if y < HUD_MARGIN + FONT_SMALL:
+            position = Point(position.get_x(), HUD_MARGIN + FONT_SMALL)
         elif y > (SCREEN_HEIGHT - RACKET_HEIGHT):
             position = Point(position.get_x(), SCREEN_HEIGHT - RACKET_HEIGHT)
             

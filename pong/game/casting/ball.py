@@ -31,7 +31,7 @@ class Ball(Actor):
     def bounce_y(self):
         """Bounces the ball in the y direction."""
         velocity = self._body.get_velocity()
-        rn = random.uniform(0.9, 1.1)
+        rn = random.uniform(0.9, 1.4)
         vx = velocity.get_x()
         vy = velocity.get_y() * rn * -1 
         velocity = Point(vx, vy)

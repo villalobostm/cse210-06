@@ -40,7 +40,7 @@ class CollideBordersAction(Action):
                 callback.on_next(GAME_OVER)
                 self._audio_service.play_sound(over_sound)
 
-        if y < FIELD_TOP:
+        if y <  HUD_MARGIN + FONT_SMALL:
             ball.bounce_y()
             self._audio_service.play_sound(bounce_sound)
 
