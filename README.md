@@ -17,3 +17,5 @@ Joseph Perez:
 - Readme File [ ]
 - Game mockups [X]
 - Removed bricks from the code [X]
+- Added limits to rackets [X]
+- Implemented simple score system [X]
