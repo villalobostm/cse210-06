@@ -42,10 +42,10 @@ WHITE = Color(255, 255, 255)
 PURPLE = Color(255, 0, 255)
 
 # KEYS
-P1_UP = "up"
-P1_DOWN = "down"
-P2_UP = "w"
-P2_DOWN = "s"
+P1_UP = "w"
+P1_DOWN = "s"
+P2_UP = "up"
+P2_DOWN = "down"
 SPACE = "space"
 ENTER = "enter"
 PAUSE = "p"
