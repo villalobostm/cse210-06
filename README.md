@@ -11,6 +11,13 @@ Rules
 - Wins whoever gets to 11 points and has an advantage of two points
 - Ball increses speed
 
+Getting Started
+
+Requirements
+
+- Python 3.8.0
+- Raylib Python CFFI 3.7
+
 Contributors:
 
 Joseph Perez:
@@ -19,3 +26,14 @@ Joseph Perez:
 - Removed bricks from the code [X]
 - Added limits to rackets [X]
 - Implemented simple score system [X]
+
+Daniel Parra:
+- Added Player 2 Racket [X]
+- Added Player 2 Score [X]
+- Added both players controls [X]
+- Changed ball and racket sprites [X]
+- Changed Player 1 and Player 2 racket start position [X]
+- Changed both Score hud start position [X]
+- Changed Ball start position [X]
+- Changed Collide Border Action [X]
+- Changed point system for both players [X]
