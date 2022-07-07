@@ -22,9 +22,9 @@ class CollideBordersAction(Action):
 
         if x < FIELD_LEFT:
             stats = cast.get_first_actor(self._player2_stats)
-            stats.add_points(1)
+            stats.add_points(POINT_VALUE)
             
-            if stats.get_score() < 11:
+            if stats.get_score() < MAXIMUM_SCORE:
                 callback.on_next(TRY_AGAIN) 
             else:
                 callback.on_next(GAME_OVER)
@@ -32,9 +32,9 @@ class CollideBordersAction(Action):
 
         if x > (FIELD_RIGHT - BALL_WIDTH):
             stats = cast.get_first_actor(self._player1_stats)
-            stats.add_points(1)
+            stats.add_points(POINT_VALUE)
             
-            if stats.get_score() < 11:
+            if stats.get_score() < MAXIMUM_SCORE:
                 callback.on_next(TRY_AGAIN) 
             else:
                 callback.on_next(GAME_OVER)
