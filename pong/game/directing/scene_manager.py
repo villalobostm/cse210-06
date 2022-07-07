@@ -49,7 +49,8 @@ class SceneManager:
     P2_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,RACKET_GROUP_P2,P2_UP,P2_DOWN)
     DRAW_BALL_ACTION = DrawBallAction(VIDEO_SERVICE)
     DRAW_DIALOG_ACTION = DrawDialogAction(VIDEO_SERVICE)
-    DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE)
+    P1_DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE, SCORE_GROUP_P1)
+    P2_DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE, SCORE_GROUP_P2)
     P1_DRAW_RACKET_ACTION= DrawRacketAction(VIDEO_SERVICE,RACKET_GROUP_P1)
     P2_DRAW_RACKET_ACTION= DrawRacketAction(VIDEO_SERVICE,RACKET_GROUP_P2)
     END_DRAWING_ACTION = EndDrawingAction(VIDEO_SERVICE)
@@ -85,7 +86,8 @@ class SceneManager:
         self._add_stats(cast)
         self._add_level(cast)
         self._add_lives(cast)
-        self._add_score(cast)
+        self._add_score(cast, SCORE_GROUP_P1, SCORE_P1_X_POSITION)
+        self._add_score(cast, SCORE_GROUP_P2, SCORE_P2_X_POSITION)
         self._add_ball(cast)
 
         self._add_racket(cast,RACKET_GROUP_P1,RACKET_POSITION_P1)
@@ -184,12 +186,12 @@ class SceneManager:
         label = Label(text, position)
         cast.add_actor(LIVES_GROUP, label)
 
-    def _add_score(self, cast):
-        cast.clear_actors(SCORE_GROUP)
+    def _add_score(self, cast, player, x_position):
+        cast.clear_actors(player)
         text = Text(SCORE_FORMAT, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
-        position = Point(CENTER_X, HUD_MARGIN)
+        position = Point(x_position, HUD_MARGIN)
         label = Label(text, position)
-        cast.add_actor(SCORE_GROUP, label)
+        cast.add_actor(player, label)
 
     def _add_stats(self, cast):
         cast.clear_actors(STATS_GROUP)
@@ -222,7 +224,8 @@ class SceneManager:
     def _add_output_script(self, script):
         script.clear_actions(OUTPUT)
         script.add_action(OUTPUT, self.START_DRAWING_ACTION)
-        script.add_action(OUTPUT, self.DRAW_HUD_ACTION)
+        script.add_action(OUTPUT, self.P1_DRAW_HUD_ACTION)
+        script.add_action(OUTPUT, self.P2_DRAW_HUD_ACTION)
         script.add_action(OUTPUT, self.DRAW_BALL_ACTION)
         script.add_action(OUTPUT, self.P1_DRAW_RACKET_ACTION)
         script.add_action(OUTPUT, self.P2_DRAW_RACKET_ACTION)
