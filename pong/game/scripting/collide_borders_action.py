@@ -5,10 +5,12 @@ from game.scripting.action import Action
 
 class CollideBordersAction(Action):
 
-    def __init__(self, physics_service, audio_service):
+    def __init__(self, physics_service, audio_service, player1_stats, player2_stats):
         self._physics_service = physics_service
-        self._audio_service = audio_service    
-        
+        self._audio_service = audio_service
+        self._player1_stats = player1_stats    
+        self._player2_stats = player2_stats    
+
     def execute(self, cast, script, callback):
         ball = cast.get_first_actor(BALL_GROUP)
         body = ball.get_body()
@@ -19,7 +21,7 @@ class CollideBordersAction(Action):
         over_sound = Sound(OVER_SOUND)
 
         if x < FIELD_LEFT:
-            stats = cast.get_first_actor(STATS_GROUP)
+            stats = cast.get_first_actor(self._player2_stats)
             stats.add_points(1)
             
             if stats.get_score() < 11:
@@ -29,7 +31,7 @@ class CollideBordersAction(Action):
                 self._audio_service.play_sound(over_sound)
 
         if x > (FIELD_RIGHT - BALL_WIDTH):
-            stats = cast.get_first_actor(STATS_GROUP)
+            stats = cast.get_first_actor(self._player1_stats)
             stats.add_points(1)
             
             if stats.get_score() < 11:

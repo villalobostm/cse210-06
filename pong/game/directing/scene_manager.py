@@ -42,15 +42,15 @@ class SceneManager:
     PHYSICS_SERVICE = RaylibPhysicsService()
     VIDEO_SERVICE = RaylibVideoService(GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT)
 
-    COLLIDE_BORDERS_ACTION = CollideBordersAction(PHYSICS_SERVICE, AUDIO_SERVICE)
+    COLLIDE_BORDERS_ACTION = CollideBordersAction(PHYSICS_SERVICE, AUDIO_SERVICE, STATS_GROUP_P1, STATS_GROUP_P2)
     P1_COLLIDE_RACKET_ACTION = CollideRacketAction(PHYSICS_SERVICE, AUDIO_SERVICE,RACKET_GROUP_P1)
     P2_COLLIDE_RACKET_ACTION = CollideRacketAction(PHYSICS_SERVICE, AUDIO_SERVICE,RACKET_GROUP_P2)
     P1_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,RACKET_GROUP_P1,P1_UP,P1_DOWN)
     P2_CONTROL_RACKET_ACTION = ControlRacketAction(KEYBOARD_SERVICE,RACKET_GROUP_P2,P2_UP,P2_DOWN)
     DRAW_BALL_ACTION = DrawBallAction(VIDEO_SERVICE)
     DRAW_DIALOG_ACTION = DrawDialogAction(VIDEO_SERVICE)
-    P1_DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE, SCORE_GROUP_P1)
-    P2_DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE, SCORE_GROUP_P2)
+    P1_DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE, STATS_GROUP_P1, SCORE_GROUP_P1)
+    P2_DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE, STATS_GROUP_P2, SCORE_GROUP_P2)
     P1_DRAW_RACKET_ACTION= DrawRacketAction(VIDEO_SERVICE,RACKET_GROUP_P1)
     P2_DRAW_RACKET_ACTION= DrawRacketAction(VIDEO_SERVICE,RACKET_GROUP_P2)
     END_DRAWING_ACTION = EndDrawingAction(VIDEO_SERVICE)
@@ -83,7 +83,8 @@ class SceneManager:
     # ----------------------------------------------------------------------------------------------
     
     def _prepare_new_game(self, cast, script):
-        self._add_stats(cast)
+        self._add_stats(cast, STATS_GROUP_P1)
+        self._add_stats(cast, STATS_GROUP_P2)
         self._add_level(cast)
         self._add_lives(cast)
         self._add_score(cast, SCORE_GROUP_P1, SCORE_P1_X_POSITION)
@@ -193,10 +194,10 @@ class SceneManager:
         label = Label(text, position)
         cast.add_actor(player, label)
 
-    def _add_stats(self, cast):
-        cast.clear_actors(STATS_GROUP)
+    def _add_stats(self, cast, player_stats):
+        cast.clear_actors(player_stats)
         stats = Stats()
-        cast.add_actor(STATS_GROUP, stats)
+        cast.add_actor(player_stats, stats)
 
     def _add_racket(self, cast, player, x_position):
         cast.clear_actors(player)

@@ -75,9 +75,10 @@ RELEASE = 6
 # -------------------------------------------------------------------------------------------------- 
 
 # STATS
-STATS_GROUP = "stats"
-DEFAULT_LIVES = 3
-MAXIMUM_LIVES = 5
+STATS_GROUP_P1 = "p1_stats"
+STATS_GROUP_P2 = "p2_stats"
+DEFAULT_LIVES = 10
+MAXIMUM_LIVES = 10
 
 # HUD
 HUD_MARGIN = 15
