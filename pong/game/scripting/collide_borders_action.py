@@ -21,20 +21,22 @@ class CollideBordersAction(Action):
         over_sound = Sound(OVER_SOUND)
 
         if x < FIELD_LEFT:
-            stats = cast.get_first_actor(self._player2_stats)
-            stats.add_points(POINT_VALUE)
+            statsp2 = cast.get_first_actor(self._player2_stats)
+            statsp1 = cast.get_first_actor(self._player1_stats)
+            statsp2.add_points(POINT_VALUE)
             
-            if stats.get_score() < MAXIMUM_SCORE:
+            if (statsp2.get_score() < MAXIMUM_SCORE) or (statsp2.get_score() < (statsp1.get_score() + (POINTS_TO_WIN + 1))):
                 callback.on_next(TRY_AGAIN) 
             else:
                 callback.on_next(GAME_OVER)
                 self._audio_service.play_sound(over_sound)
 
         if x > (FIELD_RIGHT - BALL_WIDTH):
-            stats = cast.get_first_actor(self._player1_stats)
-            stats.add_points(POINT_VALUE)
+            statsp2 = cast.get_first_actor(self._player2_stats)
+            statsp1 = cast.get_first_actor(self._player1_stats)
+            statsp1.add_points(POINT_VALUE)
             
-            if stats.get_score() < MAXIMUM_SCORE:
+            if (statsp1.get_score() < MAXIMUM_SCORE) or (statsp1.get_score() < (statsp2.get_score() + (POINTS_TO_WIN + 1))):
                 callback.on_next(TRY_AGAIN) 
             else:
                 callback.on_next(GAME_OVER)
