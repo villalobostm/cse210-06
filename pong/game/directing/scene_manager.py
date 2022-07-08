@@ -67,7 +67,9 @@ class SceneManager:
         pass
 
     def prepare_scene(self, scene, cast, script):
-        if scene == NEW_GAME:
+        if scene == MENU:
+            self._prepare_menu(cast, script)
+        elif scene == NEW_GAME:
             self._prepare_new_game(cast, script)
         elif scene == NEXT_LEVEL:
             self._prepare_next_level(cast, script)
@@ -81,12 +83,19 @@ class SceneManager:
     # ----------------------------------------------------------------------------------------------
     # scene methods
     # ----------------------------------------------------------------------------------------------
-    
+    def _prepare_menu(self, cast, script):
+        self._add_dialog(cast, ENTER_TO_START)
+        self._add_initialize_script(script)
+        self._add_load_script(script)
+        script.clear_actions(INPUT)
+        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_LEVEL))
+        self._add_output_script(script)
+        self._add_unload_script(script)
+        self._add_release_script(script)
+
     def _prepare_new_game(self, cast, script):
         self._add_stats(cast, STATS_GROUP_P1)
         self._add_stats(cast, STATS_GROUP_P2)
-        self._add_level(cast)
-        self._add_lives(cast)
         self._add_score(cast, SCORE_GROUP_P1, SCORE_P1_X_POSITION)
         self._add_score(cast, SCORE_GROUP_P2, SCORE_P2_X_POSITION)
         self._add_ball(cast)

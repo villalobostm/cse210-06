@@ -26,6 +26,8 @@ Joseph Perez:
 - Removed bricks from the code [X]
 - Added limits to rackets [X]
 - Implemented simple score system [X]
+- Added more speed to the ball [X]
+- Change the collision to the top [X]
 
 Daniel Parra:
 - Added Player 2 Racket [X]
