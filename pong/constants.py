@@ -6,7 +6,7 @@ from game.casting.color import Color
 # -------------------------------------------------------------------------------------------------- 
 
 # GAME
-GAME_NAME = "El PONG"
+GAME_NAME = "EL PONG"
 FRAME_RATE = 60
 
 # SCREEN
@@ -81,6 +81,7 @@ STATS_GROUP_P2 = "p2_stats"
 POINT_VALUE = 1
 MAXIMUM_SCORE = 11
 POINTS_TO_WIN = 2
+DEFAULT_LIVES = 0
 
 # HUD
 HUD_MARGIN = 15
@@ -100,6 +101,7 @@ BALL_IMAGE = "pong/assets/images/000.png"
 BALL_WIDTH = 14
 BALL_HEIGHT = 14
 BALL_VELOCITY = 4
+
 # RACKET
 RACKET_GROUP_P1 = "p1_paddle"
 RACKET_GROUP_P2 = "p2_paddle"
@@ -122,3 +124,4 @@ DIALOG_GROUP = "dialogs"
 ENTER_TO_START = "PRESS ENTER TO START"
 PREP_TO_LAUNCH = "PREPARING TO LAUNCH"
 WAS_GOOD_GAME = "GAME OVER"
+

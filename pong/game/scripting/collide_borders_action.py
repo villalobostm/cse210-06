@@ -25,7 +25,7 @@ class CollideBordersAction(Action):
             statsp1 = cast.get_first_actor(self._player1_stats)
             statsp2.add_points(POINT_VALUE)
             
-            if (statsp2.get_score() < MAXIMUM_SCORE) or (statsp2.get_score() < (statsp1.get_score() + (POINTS_TO_WIN + 1))):
+            if (statsp2.get_score() < MAXIMUM_SCORE) or (statsp2.get_score() < (statsp1.get_score() + (POINTS_TO_WIN))):
                 callback.on_next(TRY_AGAIN) 
             else:
                 callback.on_next(GAME_OVER)
@@ -36,7 +36,7 @@ class CollideBordersAction(Action):
             statsp1 = cast.get_first_actor(self._player1_stats)
             statsp1.add_points(POINT_VALUE)
             
-            if (statsp1.get_score() < MAXIMUM_SCORE) or (statsp1.get_score() < (statsp2.get_score() + (POINTS_TO_WIN + 1))):
+            if (statsp1.get_score() < MAXIMUM_SCORE) or (statsp1.get_score() < (statsp2.get_score() + (POINTS_TO_WIN))):
                 callback.on_next(TRY_AGAIN) 
             else:
                 callback.on_next(GAME_OVER)
