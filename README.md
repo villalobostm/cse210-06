@@ -21,6 +21,7 @@ Requirements
 Contributors:
 
 Joseph Perez:
+josephemilioperezpilier@gmail.com
 - Readme File [ ]
 - Game mockups [X]
 - Removed bricks from the code [X]
@@ -30,6 +31,7 @@ Joseph Perez:
 - Change the collision to the top [X]
 
 Daniel Parra:
+par21002@byui.edu
 - Added Player 2 Racket [X]
 - Added Player 2 Score [X]
 - Added both players controls [X]
@@ -39,3 +41,14 @@ Daniel Parra:
 - Changed Ball start position [X]
 - Changed Collide Border Action [X]
 - Changed point system for both players [X]
+
+Thomas Villalobos (Team Leader)
+vil22003@byui.edu
+- Readme File [ ]
+
+Gloria Rosado
+ros21035@byu.edu
+
+
+Jonathan Uribe
+u266801382@byui.edu
