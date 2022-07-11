@@ -1,4 +1,4 @@
-## cse210-06
+# cse210-06
 Final Project
 
 # El pong Game
@@ -15,9 +15,9 @@ Pong was originally released in 1972 by Atari, we decided to recreate our improv
 - Python 3.8.0
 - Raylib Python CFFI 3.7
 
-## Contributors:
+# Contributors:
 
-# Joseph Perez:
+## Joseph Perez:
 josephemilioperezpilier@gmail.com
 - Readme File [ ]
 - Game mockups [X]
@@ -27,7 +27,7 @@ josephemilioperezpilier@gmail.com
 - Added more speed to the ball [X]
 - Change the collision to the top [X]
 
-# Daniel Parra:
+## Daniel Parra:
 par21002@byui.edu
 - Added Player 2 Racket [X]
 - Added Player 2 Score [X]
@@ -39,11 +39,11 @@ par21002@byui.edu
 - Changed Collide Border Action [X]
 - Changed point system for both players [X]
 
-# Thomas Villalobos (Team Leader)
+## Thomas Villalobos (Team Leader)
 vil22003@byui.edu
 - Readme File [ ]
 
-# Gloria Rosado
+## Gloria Rosado
 ros21035@byu.edu
 
 # Jonathan Uribe
