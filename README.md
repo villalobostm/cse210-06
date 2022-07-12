@@ -32,12 +32,17 @@ par21002@byui.edu
 - Added Player 2 Racket [X]
 - Added Player 2 Score [X]
 - Added both players controls [X]
+- Added Menu on start [X]
+- Added Menu Button action [X]
 - Changed ball and racket sprites [X]
 - Changed Player 1 and Player 2 racket start position [X]
 - Changed both Score hud start position [X]
 - Changed Ball start position [X]
 - Changed Collide Border Action [X]
 - Changed point system for both players [X]
+- Created Button class [X]
+- Created ChangeSceneClickAction [X]
+- Created DrawButtonAction [X]
 
 ## Thomas Villalobos (Team Leader)
 vil22003@byui.edu
