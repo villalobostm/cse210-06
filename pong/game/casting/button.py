@@ -1,6 +1,6 @@
 from constants import *
 from game.casting.actor import Actor
-
+from game.casting.point import Point
 
 
 class Button(Actor):
@@ -33,3 +33,7 @@ class Button(Actor):
             An instance of Image.
         """
         return self._image
+
+    def get_position(self):
+
+        return self._position

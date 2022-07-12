@@ -17,6 +17,7 @@ class RaylibMouseService(MouseService):
         y = pyray.get_mouse_y()
         return Point(x, y)
 
+
     def has_mouse_moved(self):
         mouse_delta = pyray.get_mouse_delta()
         return mouse_delta.x > 0 or mouse_delta.y > 0

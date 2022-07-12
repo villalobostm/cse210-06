@@ -34,6 +34,22 @@ class Point:
             True if both x and y are equal; false if otherwise.
         """
         return self._x == other.get_x() and self._y == other.get_y()
+    
+    def is_aprox(self, other):
+        """Whether or not this Point is aprox to the given one.
+
+        Args:
+            other: An instance of Point to compare.
+
+        Returns: 
+            True if both x and y are equal; false if otherwise.
+        """
+        a = other.get_x() - self._x
+        b = other.get_y() - self._y
+        if (((a < 10) and (a > - 10)) and ((b < 10) and (b > -10))):
+            return True
+        else:
+            return False
 
     def get_x(self):
         """Gets the horizontal distance.
