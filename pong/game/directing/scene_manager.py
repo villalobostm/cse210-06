@@ -1,5 +1,3 @@
-import csv
-from tkinter import RIGHT
 from constants import *
 from game.casting.animation import Animation
 from game.casting.ball import Ball
@@ -32,7 +30,10 @@ from game.services.raylib.raylib_audio_service import RaylibAudioService
 from game.services.raylib.raylib_keyboard_service import RaylibKeyboardService
 from game.services.raylib.raylib_physics_service import RaylibPhysicsService
 from game.services.raylib.raylib_video_service import RaylibVideoService
-
+from game.scripting.draw_button_action import DrawButtonAction
+from game.casting.button import Button
+from game.services.raylib.raylib_mouse_service import RaylibMouseService
+from game.scripting.change_scene_click_action import ChangeSceneClickAction
 
 class SceneManager:
     """The person in charge of setting up the cast and script for each scene."""
@@ -41,6 +42,7 @@ class SceneManager:
     KEYBOARD_SERVICE = RaylibKeyboardService()
     PHYSICS_SERVICE = RaylibPhysicsService()
     VIDEO_SERVICE = RaylibVideoService(GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT)
+    MOUSE_SERVICE = RaylibMouseService()
 
     COLLIDE_BORDERS_ACTION = CollideBordersAction(PHYSICS_SERVICE, AUDIO_SERVICE, STATS_GROUP_P1, STATS_GROUP_P2)
     P1_COLLIDE_RACKET_ACTION = CollideRacketAction(PHYSICS_SERVICE, AUDIO_SERVICE,RACKET_GROUP_P1)
@@ -63,6 +65,10 @@ class SceneManager:
     START_DRAWING_ACTION = StartDrawingAction(VIDEO_SERVICE)
     UNLOAD_ASSETS_ACTION = UnloadAssetsAction(AUDIO_SERVICE, VIDEO_SERVICE)
 
+    DRAW_BUTTON_1_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_1_GROUP)
+    DRAW_BUTTON_2_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_2_GROUP)
+    DRAW_BUTTON_3_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_3_GROUP)
+
     def __init__(self):
         pass
 
@@ -84,14 +90,20 @@ class SceneManager:
     # scene methods
     # ----------------------------------------------------------------------------------------------
     def _prepare_menu(self, cast, script):
-        self._add_dialog(cast, ENTER_TO_START)
+        self._add_button(cast, BUTTON_1_GROUP, BUTTON_1_Y_POSITION, BUTTON_1_X_POSITION, BUTTON_1_WIDTH, BUTTON_1_HEIGHT, BUTTON_1_IMAGE, BUTTON_1_TEXT)
+        self._add_button(cast, BUTTON_2_GROUP, BUTTON_2_Y_POSITION, BUTTON_2_X_POSITION, BUTTON_2_WIDTH, BUTTON_2_HEIGHT, BUTTON_2_IMAGE, BUTTON_2_TEXT)
+        self._add_button(cast, BUTTON_3_GROUP, BUTTON_3_Y_POSITION, BUTTON_3_X_POSITION, BUTTON_3_WIDTH, BUTTON_3_HEIGHT, BUTTON_3_IMAGE, BUTTON_3_TEXT)
+
         self._add_initialize_script(script)
         self._add_load_script(script)
         script.clear_actions(INPUT)
-        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_LEVEL))
-        self._add_output_script(script)
+        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEW_GAME))
+        # script.add_action(INPUT, ChangeSceneClickAction(self.MOUSE_SERVICE, BUTTON_1_X_POSITION, BUTTON_1_Y_POSITION, NEW_GAME))
+        self._add_menu_output_script(script)
         self._add_unload_script(script)
         self._add_release_script(script)
+
+       
 
     def _prepare_new_game(self, cast, script):
         self._add_stats(cast, STATS_GROUP_P1)
@@ -220,6 +232,18 @@ class SceneManager:
         racket = Racket(body, animation)
         cast.add_actor(player, racket)
 
+    def _add_button(self, cast, button_group, y_position, x_position, width, height, image, text_button):
+        cast.clear_actors(button_group)
+        x = x_position
+        y = y_position
+        position = Point(x, y)
+        size = Point(width, height)
+        velocity = Point(0, 0)
+        body = Body(position, size, velocity)
+        image = Image(image)
+        button = Button(body, image, True)
+        cast.add_actor(button_group, button)
+
     # ----------------------------------------------------------------------------------------------
     # scripting methods
     # ----------------------------------------------------------------------------------------------
@@ -260,3 +284,12 @@ class SceneManager:
         script.add_action(UPDATE, self.P2_COLLIDE_RACKET_ACTION)
         script.add_action(UPDATE, self.P1_MOVE_RACKET_ACTION)
         script.add_action(UPDATE, self.P2_MOVE_RACKET_ACTION)
+
+    def _add_menu_output_script(self, script):
+        script.clear_actions(OUTPUT)
+        script.add_action(OUTPUT, self.START_DRAWING_ACTION)
+        script.add_action(OUTPUT, self.DRAW_BUTTON_1_ACTION)
+        script.add_action(OUTPUT, self.DRAW_BUTTON_2_ACTION)
+        script.add_action(OUTPUT, self.DRAW_BUTTON_3_ACTION)
+        script.add_action(OUTPUT, self.DRAW_DIALOG_ACTION)
+        script.add_action(OUTPUT, self.END_DRAWING_ACTION)
