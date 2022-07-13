@@ -5,9 +5,11 @@ Final Project
 Pong was originally released in 1972 by Atari, we decided to recreate our improved version of the game by adding more difficulty to the game.
 
 # Rules
-- Ball will bounce each side, and player will use a paddle to kick the ball
-- Wins whoever gets to 11 points and has an advantage of two points
-- Ball increses speed
+- Player 1 moves with the keyboards “w” up and “s” down.
+- Player 2 moves with the keyboards “up” up and “down” down.
+- The ball randomly bounces to one side and the player uses a paddle to kick the ball to the other side. Player scores if the opponent does not hit the ball.
+- The first to 11 points is declared the winner.
+- If the points are tied at 10-10, a player then must strive for a two-point lead to win the game.
 
 # Getting Started
 
@@ -19,7 +21,6 @@ Pong was originally released in 1972 by Atari, we decided to recreate our improv
 
 ## Joseph Perez:
 josephemilioperezpilier@gmail.com
-- Readme File [ ]
 - Game mockups [X]
 - Removed bricks from the code [X]
 - Added limits to rackets [X]
@@ -49,12 +50,16 @@ par21002@byui.edu
 
 ## Thomas Villalobos (Team Leader)
 vil22003@byui.edu
-- Readme File [ ]
+- Readme File [X]
+- Menu [X]
+- Software Testing [X]
+- Fixed the win with a two point lead [X]
 
 ## Gloria Rosado
 ros21035@byu.edu
 - Images [X]
 - Menu [X]
+
 # Jonathan Uribe
 u266801382@byui.edu
 - Quality Control [X]
