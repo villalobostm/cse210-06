@@ -15,6 +15,6 @@ class ChangeSceneClickAction(Action):
         button = cast.get_first_actor(self._button)
         body = button.get_body()
         
-        if cursor.is_aprox(body.get_position()):
+        if cursor.is_aprox(body.get_position(), body.get_size()):
             if self._mouse_service.is_button_down("left"):
                 callback.on_next(self._next_scene)
