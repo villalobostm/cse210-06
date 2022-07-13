@@ -26,6 +26,7 @@ josephemilioperezpilier@gmail.com
 - Implemented simple score system [X]
 - Added more speed to the ball [X]
 - Change the collision to the top [X]
+- Fixed Height and Width Contants to calculate the are of button [X]
 
 ## Daniel Parra:
 par21002@byui.edu

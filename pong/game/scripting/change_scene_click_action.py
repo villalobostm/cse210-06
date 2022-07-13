@@ -1,7 +1,7 @@
 from constants import *
 from game.scripting.action import Action
 from game.casting.point import Point
-
+"This class is responsable of tracking click on the menu"
 class ChangeSceneClickAction(Action):
 
     def __init__(self, mouse_service, button, next_scene): 
