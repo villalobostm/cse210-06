@@ -35,6 +35,8 @@ par21002@byui.edu
 - Added both players controls [X]
 - Added Menu on start [X]
 - Added Menu Button action [X]
+- Added Help button and Help scene [X]
+- Added Credits button and Credits scene [X]
 - Changed ball and racket sprites [X]
 - Changed Player 1 and Player 2 racket start position [X]
 - Changed both Score hud start position [X]
