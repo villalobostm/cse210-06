@@ -50,6 +50,7 @@ vil22003@byui.edu
 
 ## Gloria Rosado
 ros21035@byu.edu
-
+- Images [X]
+- Menu [X]
 # Jonathan Uribe
 u266801382@byui.edu
