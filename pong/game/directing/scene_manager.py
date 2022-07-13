@@ -66,6 +66,7 @@ class SceneManager:
     UNLOAD_ASSETS_ACTION = UnloadAssetsAction(AUDIO_SERVICE, VIDEO_SERVICE)
 
     # MENU DRAW ACTION
+    DRAW_TITLE_ACTION = DrawButtonAction(VIDEO_SERVICE, TITLE_GROUP)
     DRAW_BUTTON_1_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_1_GROUP)
     DRAW_BUTTON_2_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_2_GROUP)
     DRAW_BUTTON_3_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_3_GROUP)
@@ -101,6 +102,7 @@ class SceneManager:
     # scene methods
     # ----------------------------------------------------------------------------------------------
     def _prepare_menu(self, cast, script):
+        self._add_button(cast, TITLE_GROUP, TITLE_Y_POSITION, TITLE_X_POSITION, TITLE_WIDTH, TITLE_HEIGHT, TITLE_IMAGE)
         self._add_button(cast, BUTTON_1_GROUP, BUTTON_1_Y_POSITION, BUTTON_1_X_POSITION, BUTTON_1_WIDTH, BUTTON_1_HEIGHT, BUTTON_1_IMAGE)
         self._add_button(cast, BUTTON_2_GROUP, BUTTON_2_Y_POSITION, BUTTON_2_X_POSITION, BUTTON_2_WIDTH, BUTTON_2_HEIGHT, BUTTON_2_IMAGE)
         self._add_button(cast, BUTTON_3_GROUP, BUTTON_3_Y_POSITION, BUTTON_3_X_POSITION, BUTTON_3_WIDTH, BUTTON_3_HEIGHT, BUTTON_3_IMAGE)
@@ -128,7 +130,7 @@ class SceneManager:
 
     def _prepare_credits(self,cast,script):
         self._add_button(cast, BUTTON_5_GROUP, BUTTON_5_Y_POSITION, BUTTON_5_X_POSITION, BUTTON_5_WIDTH, BUTTON_5_HEIGHT, BUTTON_5_IMAGE)
-        
+
         self._add_initialize_script(script)
         self._add_load_script(script)
         script.clear_actions(INPUT)
@@ -320,6 +322,7 @@ class SceneManager:
     def _add_menu_output_script(self, script):
         script.clear_actions(OUTPUT)
         script.add_action(OUTPUT, self.START_DRAWING_ACTION)
+        script.add_action(OUTPUT, self.DRAW_TITLE_ACTION)
         script.add_action(OUTPUT, self.DRAW_BUTTON_1_ACTION)
         script.add_action(OUTPUT, self.DRAW_BUTTON_2_ACTION)
         script.add_action(OUTPUT, self.DRAW_BUTTON_3_ACTION)
