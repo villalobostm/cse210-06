@@ -65,10 +65,15 @@ class SceneManager:
     START_DRAWING_ACTION = StartDrawingAction(VIDEO_SERVICE)
     UNLOAD_ASSETS_ACTION = UnloadAssetsAction(AUDIO_SERVICE, VIDEO_SERVICE)
 
+    # MENU DRAW ACTION
     DRAW_BUTTON_1_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_1_GROUP)
     DRAW_BUTTON_2_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_2_GROUP)
     DRAW_BUTTON_3_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_3_GROUP)
+
+    # HELP DRAW ACTION
     DRAW_BUTTON_4_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_4_GROUP)
+
+    # CREDITS DRAW ACTION
     DRAW_BUTTON_5_ACTION = DrawButtonAction(VIDEO_SERVICE, BUTTON_5_GROUP)
 
     def __init__(self):
@@ -112,22 +117,22 @@ class SceneManager:
 
     def _prepare_help(self,cast,script):
         self._add_button(cast, BUTTON_4_GROUP, BUTTON_4_Y_POSITION, BUTTON_4_X_POSITION, BUTTON_4_WIDTH, BUTTON_4_HEIGHT, BUTTON_4_IMAGE)
+
         self._add_initialize_script(script)
         self._add_load_script(script)
         script.clear_actions(INPUT)
         script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, MENU))
-        #script.add_action(INPUT, ChangeSceneClickAction(self.MOUSE_SERVICE, BUTTON_4_GROUP, MENU))
         self._add_help_output_script(script)
         self._add_unload_script(script)
         self._add_release_script(script)
 
     def _prepare_credits(self,cast,script):
         self._add_button(cast, BUTTON_5_GROUP, BUTTON_5_Y_POSITION, BUTTON_5_X_POSITION, BUTTON_5_WIDTH, BUTTON_5_HEIGHT, BUTTON_5_IMAGE)
+        
         self._add_initialize_script(script)
         self._add_load_script(script)
         script.clear_actions(INPUT)
         script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, MENU))
-        #script.add_action(INPUT, ChangeSceneClickAction(self.MOUSE_SERVICE, BUTTON_5_GROUP, MENU))
         self._add_credits_output_script(script)
         self._add_unload_script(script)
         self._add_release_script(script)

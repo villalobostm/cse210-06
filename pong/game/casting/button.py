@@ -4,7 +4,7 @@ from game.casting.point import Point
 
 
 class Button(Actor):
-    """***"""
+    """A button that can be clicked."""
     
     def __init__(self, body, image, debug = False):
         """Constructs a new Button.
@@ -19,7 +19,7 @@ class Button(Actor):
         self._image = image
 
     def get_body(self):
-        """Gets the ball's body.
+        """Gets the button's body.
         
         Returns:
             An instance of Body.
@@ -27,13 +27,9 @@ class Button(Actor):
         return self._body
 
     def get_image(self):
-        """Gets the ball's image.
+        """Gets the button's image.
         
         Returns:
             An instance of Image.
         """
         return self._image
-
-    def get_position(self):
-
-        return self._position

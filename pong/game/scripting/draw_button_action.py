@@ -3,7 +3,12 @@ from game.scripting.action import Action
 
 
 class DrawButtonAction(Action):
+    """This class is responsable of draw a button.
 
+        Args:
+            video_service: An instance of Video Service.
+            button: The button to be draw.
+    """
     def __init__(self, video_service, button_group):
         self._video_service = video_service
         self._button = button_group

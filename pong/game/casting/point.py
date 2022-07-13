@@ -35,21 +35,27 @@ class Point:
         """
         return self._x == other.get_x() and self._y == other.get_y()
     
-    def is_aprox(self, other, size):
-        """Whether or not this Point is aprox to the given one.
+    def is_inside(self, start_point, end_point):
+        """Whether or not this Point is inside an area.
 
         Args:
-            other: An instance of Point to compare.
+            start_point: An instance of Point to compare the init point.
+            end_point: An instance of Point to compare the end point.
 
         Returns: 
-            True if both x and y are equal; false if otherwise.
+            True if self is between x and y of other and size; false if otherwise.
         """
-        a = other.get_x()
-        b = other.get_y()
+        # Self
         c = self.get_x()
         d = self.get_y()
-        e = size.get_x()
-        f = size.get_y()
+        
+        # Start point
+        a = start_point.get_x()
+        b = start_point.get_y()
+        
+        # End point
+        e = end_point.get_x()
+        f = end_point.get_y()
         if ((c > a) and (c < e)) and ((d > b) and (d < f)):
             return True
         else:
