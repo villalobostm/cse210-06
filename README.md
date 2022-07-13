@@ -1,7 +1,7 @@
 # cse210-06
 Final Project
 
-# El pong Game
+# El Pong Game
 Pong was originally released in 1972 by Atari, we decided to recreate our improved version of the game by adding more difficulty to the game.
 
 # Rules
