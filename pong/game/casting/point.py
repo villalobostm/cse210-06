@@ -53,7 +53,6 @@ class Point:
         if ((c > a) and (c < e)) and ((d > b) and (d < f)):
             return True
         else:
-            print(a,b, c,d,e,f )
             return False
 
     def get_x(self):
