@@ -57,3 +57,4 @@ ros21035@byu.edu
 - Menu [X]
 # Jonathan Uribe
 u266801382@byui.edu
+- Quality Control [X]
