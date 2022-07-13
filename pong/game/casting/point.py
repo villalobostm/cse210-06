@@ -35,7 +35,7 @@ class Point:
         """
         return self._x == other.get_x() and self._y == other.get_y()
     
-    def is_aprox(self, other):
+    def is_aprox(self, other, size):
         """Whether or not this Point is aprox to the given one.
 
         Args:
@@ -44,11 +44,16 @@ class Point:
         Returns: 
             True if both x and y are equal; false if otherwise.
         """
-        a = other.get_x() - self._x
-        b = other.get_y() - self._y
-        if (((a < 10) and (a > - 10)) and ((b < 10) and (b > -10))):
+        a = other.get_x()
+        b = other.get_y()
+        c = self.get_x()
+        d = self.get_y()
+        e = size.get_x()
+        f = size.get_y()
+        if ((c > a) and (c < e)) and ((d > b) and (d < f)):
             return True
         else:
+            print(a,b, c,d,e,f )
             return False
 
     def get_x(self):
